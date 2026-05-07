@@ -48,14 +48,35 @@ $userStatus = UserStatus::tryFrom('blocked') ?? UserStatus::Blocked; // returns 
 enum OrderStatus: string
 {
     case Pending = 'pending';
-    // case Approved = 'approved';
-    // case Declined = 'declined';
-    // We can track approved and declined using single case, Confirmed.
     case Confirmed = 'confirmed';
     case Shipped = 'shipped';
     case Cancelled = 'cancelled';
 
-    public function nextTransition() {
-        
+    public function label(): string
+    {
+        return match($this) {
+            OrderStatus::Pending => 'Awaiting confirmation',
+            OrderStatus::Confirmed => 'Order has been confirmed',
+            OrderStatus::Shipped => 'Order has been shipped',
+            OrderStatus::Cancelled => 'Order has been cancelled',
+        };
+    }
+
+    public function canTransitionTo(OrderStatus $nextStatus): bool
+    {
+        return match($this) {
+            OrderStatus::Pending => $nextStatus === OrderStatus::Confirmed || $nextStatus === OrderStatus::Cancelled,
+            OrderStatus::Confirmed => $nextStatus === OrderStatus::Shipped || $nextStatus === OrderStatus::Cancelled,
+            OrderStatus::Shipped => false,
+            OrderStatus::Cancelled => false,
+        };
+    }
+
+    public function isFinal(OrderStatus $order): bool
+    {
+        return match($this) {
+            OrderStatus::Shipped, OrderStatus::Cancelled => true,
+            default => false,
+        };
     }
 }
