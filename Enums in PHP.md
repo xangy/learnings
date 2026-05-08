@@ -4,6 +4,7 @@ date: 06-05-2026
 tags:
   - php
   - enums
+preparation-notes: Backed enums (string/int), pure enums, methods on enums (label(), canTransitionTo()), implementing interfaces. Write OrderStatus backed enum with full state-machine
 ---
 Enums can be of two type: pure and backed enums.
 
@@ -64,6 +65,11 @@ $userStatus = UserStatus::tryFrom('blocked'); // returns null if invalid.
 Use enum constant, they need to have constant value defined (if any). The enum values can't be calculate on runtime.
 
 The enums can have method, static methods, use traits, and can implement interfaces.
+
+NOTE: Think of using enums for following cases:
+- replacing string constants - when you see a string being used in the database, consider using enum constants. e.g in querying the database with where clause.
+- as policy object - for small system/sub-system, you can use enums to define the policy constants and methods to implement the policy within the enum.
+- as safe deserialization of data from user/API/database - you can consider using Enum's tryFrom() method to check if the data actually is valid or not.
 
 
 ## Related Topics
