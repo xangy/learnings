@@ -38,8 +38,16 @@ def get_tokens(text: str):
 user_input = "what's the weather like for today?"
 get_tokens(user_input)
 
+user_input = "whats the weather like for today?"
+get_tokens(user_input)
+
+user_input = "hehe, ggwp"
+get_tokens(user_input)
+
 # Output
 Raw tokens: ['what', "'", 's', '▁the', '▁weather', '▁like', '▁for', '▁today', '?']
+Raw tokens: ['whats', '▁the', '▁weather', '▁like', '▁for', '▁today', '?']
+Raw tokens: ['hehe', ',', '_gg', 'wp']
 ```
 
 
