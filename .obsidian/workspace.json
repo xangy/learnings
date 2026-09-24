@@ -4,39 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "082186e43dda98d9",
+        "id": "d701f2a5361d1f19",
         "type": "tabs",
         "children": [
           {
-            "id": "0a08fbf2dbba5ebf",
+            "id": "7a389d7dac890422",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Match expression vs. Switch.md",
+                "file": "Fibers - cooperative concurrency primitive.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Match expression vs. Switch"
-            }
-          },
-          {
-            "id": "aa82f51fb1ca9174",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Encountered while tinkering.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Encountered while tinkering"
+              "title": "Fibers - cooperative concurrency primitive"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -56,9 +41,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false,
-                "showSearch": false,
-                "searchQuery": ""
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -70,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#enums",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -86,10 +69,7 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {
-                "showSearch": false,
-                "searchQuery": ""
-              },
+              "state": {},
               "icon": "lucide-bookmark",
               "title": "Bookmarks"
             }
@@ -114,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Match expression vs. Switch.md",
+                "file": "Readonly properties + Constructor promotion.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -124,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Match expression vs. Switch"
+              "title": "Backlinks for Readonly properties + Constructor promotion"
             }
           },
           {
@@ -133,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Match expression vs. Switch.md",
+                "file": "Readonly properties + Constructor promotion.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Match expression vs. Switch"
+              "title": "Outgoing links from Readonly properties + Constructor promotion"
             }
           },
           {
@@ -176,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Match expression vs. Switch.md",
+                "file": "Readonly properties + Constructor promotion.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Match expression vs. Switch"
+              "title": "Outline of Readonly properties + Constructor promotion"
             }
           }
         ]
@@ -203,20 +183,21 @@
       "bases:Create new base": false
     }
   },
-  "active": "aa82f51fb1ca9174",
+  "active": "7a389d7dac890422",
   "lastOpenFiles": [
-    "Enums in PHP.md",
     "Match expression vs. Switch.md",
     "Encountered while tinkering.md",
     "Readonly properties + Constructor promotion.md",
-    "Untitled.canvas",
-    "template/Template.md",
+    "Enums in PHP.md",
+    "Fibers - cooperative concurrency primitive.md",
     "code/Readonly+Constructor.php",
+    "template/Template.md",
     "Welcome.md",
     "code/Untitled.md",
     "code/Enums.php",
     "Untitled 1.base",
     "Untitled.base",
+    "Untitled.canvas",
     "Test.md",
     "code",
     "template"
