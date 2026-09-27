@@ -140,7 +140,7 @@ G --> H[Next token]
 
 Temperature is only controlling the probability of tokens to become next tokens, if more tokens become significant due to higher temperature, the model will have large pool of tokens to choose from and vice-versa. This is why, for factual data, a lower temperature is applied and for creative content, a higher temperature is suggested.
 
-NOTE: the chat can also opt to ignore the temperature in certain cases depending on how it is programmed to handle those cases. On gemma4, the chat choose to answer, `mat`, when prompt was `The cat sat on a `. So I had to ask a uncommon question.
+NOTE: the chat can also opt to ignore the temperature in certain cases depending on how it is programmed to handle those cases. On gemma4, the chat choose to answer, `mat`, when prompt was `The cat sat on a `. So I had to ask an uncommon question.
 
 ```python
 import ollama
