@@ -51,5 +51,65 @@ Raw tokens: ['hehe', ',', '_gg', 'wp']
 ```
 
 
+## Context Window
+Context window is the maximum number of tokens the model can process in a single request. It may include predefined instructions, conversation history, previously generated output, tools results, documented submitted alongside the original user input.
+
+Why does it matter?
+It matters because it acts as memory for the AI. The more, the better. But it can backfire as well due to hallucinations.
+
+In below example, we try to see how the system can compile input/output from various source to
+create a context. In this example, we use a jinja file to see how the context looks like. This doesn't dive into the topics such as context management. Various chat application manage context length differently. Some may summarize the user chat history to reduce the size. Some may remove inputs by how outdated they are.
+
+```python
+from ollama import chat, ChatResponse
+from transformers import AutoTokenizer
+from typing import TypedDict, Literal
+from dotenv import load_dotenv
+
+""" HF token. """
+load_dotenv()
+
+""" Strict typing for the messages to llm. """
+class Message(TypedDict):
+	role: Literal['system', 'user', 'assistant', 'tool']
+	content: str
+
+""" Get token information using native ollama module. """
+def info_using_ollama(messages: list[Message]):
+	response: ChatResponse = chat(
+		model='gemma4:e4b',
+		messages=messages
+	)
+
+	print(f'The total number of tokens used for prompt: {response['prompt_eval_count']}\n')
+
+def info_using_hf(messages: list[Message]):
+	model_id = "google/gemma-4-E4B-it"
+	tokenizer = AutoTokenizer.from_pretrained(model_id)
+
+	"""
+		google/gemma-4-E4B didn't have a jinja template on hf, so used google/gemma-4-E4B-it's
+		jinja file. Noticed jinja template is responsible for converting the all the messages/contexts
+		into single text to be processed. Upon researching, llms can be without jinja file and handle
+		the messages at the chat or orchestration level.
+	"""
+	# with open("chat_templates/gemma-4-E4B-it/chat_template.jinja", "r") as file:
+	# tokenizer.chat_template = file.read()
+
+	prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+	tokens = tokenizer.tokenize(prompt)
+	token_count = len(tokens)
+
+	print(f"Raw tokens: {tokens}\n")
+	print(f'The total number of tokens used for prompt: {token_count}\n')
+
+messages: list[Message] = [
+	{'role': 'system', 'content': 'You joke about the user input.'},
+	{'role': 'user', 'content': 'Explain content window in LLMs'}
+]
+
+info_using_ollama(messages)
+info_using_hf(messages)
+```
 ## Related Topics
 - [[]]
