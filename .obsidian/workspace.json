@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Tokens, Context window, and Temperature.md",
+                "file": "Structured output and tool calling.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Tokens, Context window, and Temperature"
+              "title": "Structured output and tool calling"
             }
           }
         ]
@@ -191,6 +191,10 @@
   "active": "608e320a31e73814",
   "lastOpenFiles": [
     "Readonly properties + Constructor promotion.md",
+    "Tokens, Context window, and Temperature.md",
+    "Structured output and tool calling.md",
+    "Encountered while tinkering.md",
+    "Enums in PHP.md",
     "Match expression vs. Switch.md",
     "Fibers - cooperative concurrency primitive.md",
     "Tokens, Context window, and Temperature.md",
