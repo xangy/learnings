@@ -121,7 +121,7 @@ Temperature is a setting that controls how random or varied the model's output i
 - Medium Temperature (~ 0.5–0.8): balance between consistency and variety.
 - High (~1+): more varied and surprising.
 
-Temperature is directly proportional to set of next probable tokens. We need to understand a few jargons to understand how temperature works. We will consider "The cat sat on a " as an input to the model and see how the next token is predicted.
+Temperature is directly proportional to set of next probable tokens. We need to understand a few pieces of jargon to understand how temperature works. We will consider "The cat sat on a " as an input to the model and see how the next token is predicted.
 1. Logit: The transformer processes all the previous tokens and produces a number called logit for every possible token in its vocabulary. Think of it as weightage for each possible token. So, let's consider the few tokens in the vocabulary look like mat(5.0), chair(2.0), floor(3.5), ocean(0.0) etc. _`(token(logit))`_
 2. Temperature: Before Softmax formula is applied, temperature is used in the formula to manipulate the logits. A high temperature can distribute the probability homogeneously to all the tokens, hence, giving model more option to produce the next token, A lower temperature will reduce the size of next token candidates.
 3. Softmax: The logits is converted into probabilities using Softmax. Basically, saying what's the probability of next token to generate a good output. So, let's consider after using softmax formula, we get mat(0.76), chair(0.05), floor(0.21), ocean(0.00) etc. _`(token(probability))
@@ -138,7 +138,7 @@ G --> H[Next token]
 ```
 
 
-Temperature is only controlling the probability of tokens to become next tokens, if more tokens become significant due to higher temperature, the model will have large pool of tokens to choose from and vice-versa. This is why, for factual data, a lower temperature is applied and for creative content, a higher temperature is suggested.
+Temperature is only controlling the probability of tokens to become next tokens, if more tokens become significant due to higher temperature, the model will have large pool of tokens to choose from and vice versa. This is why, for factual data, a lower temperature is applied and for creative content, a higher temperature is suggested.
 
 NOTE: the chat can also opt to ignore the temperature in certain cases depending on how it is programmed to handle those cases. On gemma4, the chat choose to answer, `mat`, when prompt was `The cat sat on a `. So I had to ask an uncommon question.
 
